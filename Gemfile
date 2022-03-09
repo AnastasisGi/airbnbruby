@@ -21,3 +21,7 @@ gem "simplecov", "~> 0.21.2"
 gem "simplecov-console", "~> 0.9.1"
 
 gem "bcrypt", "~> 3.1"
+
+gem "puma", "~> 5.6"
+
+gem "rerun", "~> 0.13.1"

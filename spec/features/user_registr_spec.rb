@@ -1,3 +1,5 @@
+require_relative '../spec_helper.rb'
+
 feature 'new user signing up' do
     
     
@@ -8,8 +10,10 @@ feature 'new user signing up' do
     scenario'a user has signup details'do
     visit '/'
     click_on 'Sign Up'
+     expect(current_path).to eq '/users/new'
     fill_in 'username', with: username
     fill_in 'password', with: password
+        fill_in 'password confirmation', with: password
     fill_in 'email', with: email
     click_button 'Sign Up'
     expect(current_path).to eq'/'
