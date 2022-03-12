@@ -23,6 +23,14 @@ feature 'new user signing up' do
 
     end
 
+    scenario 'a user with the wrong credentials can not login' do
+      
+        
+
+
+
+    end
+
 
 
 end

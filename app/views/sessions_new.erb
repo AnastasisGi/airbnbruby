@@ -5,8 +5,8 @@
     <title></title>
   </head>
   <body>
-  
-    <form action="/users" method="POST">
+ <h2><%= flash[:error] %></h2>
+    <form action="/sessions" method="POST">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username">
       <br>
@@ -16,9 +16,7 @@
       <label for="password">Password:</label>
       <input type="password" name="password" id="password">
          <br>
-      <label for="password-confirmation">Confirm password:</label>
-      <input type="password" name="password confirmation" id="password-confirmation">
-      <button type="submit">Sign Up</button>
+      <button type="submit">Log In</button>
     </form>
   </body>
 <head> 

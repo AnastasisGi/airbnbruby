@@ -25,3 +25,5 @@ gem "bcrypt", "~> 3.1"
 gem "puma", "~> 5.6"
 
 gem "rerun", "~> 0.13.1"
+
+gem "sinatra-flash", "~> 0.3.0"
