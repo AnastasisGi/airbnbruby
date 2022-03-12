@@ -11,7 +11,7 @@ require 'sinatra/flash'
 
 class Airbnbruby < Sinatra::Base
     register Sinatra::Flash
-    enable :sessions
+    enable :sessions, :method_override
     
 
     ERRORS = {
@@ -44,8 +44,10 @@ class Airbnbruby < Sinatra::Base
         end
 
         post '/sessions' do 
-            user = User.find_by(username: params[:username])
-                if user && user.password == params[:password]
+            
+            user = User.authenticate(username: params[:username], password: params[:password])
+
+            if user 
                    session[:user_id]=user.id
                    redirect '/'
                 else
@@ -55,7 +57,10 @@ class Airbnbruby < Sinatra::Base
 
         end
 
-
+ delete '/sessions' do
+    session.delete(:user_id)
+    redirect '/'
+  end
 
 
 end

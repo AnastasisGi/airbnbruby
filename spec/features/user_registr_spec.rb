@@ -4,7 +4,7 @@ feature 'new user signing up' do
     
     
     let(:username){'TestUsername'}
-    let(:email){'testemail'}
+    let(:email){'testemail@testemail.com'}
     let(:password){'testpassword'}
 
     scenario'a user has signup details'do
@@ -23,13 +23,6 @@ feature 'new user signing up' do
 
     end
 
-    scenario 'a user with the wrong credentials can not login' do
-      
-        
-
-
-
-    end
 
 
 

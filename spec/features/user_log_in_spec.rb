@@ -1,6 +1,6 @@
 require_relative '../spec_helper.rb'
 
-feature 'An existing user can log in ' do
+feature 'An existing user can log in and log out  ' do
     
     
     let(:username){'TestUsername'}
@@ -19,6 +19,7 @@ feature 'An existing user can log in ' do
 
     scenario 'a user has valid credentials and can log in' do 
 
+
         visit '/'
         click_on 'Log In'
         expect(current_path).to eq '/sessions/new'
@@ -35,6 +36,8 @@ feature 'An existing user can log in ' do
 
 
     scenario 'A user has no valid credentials and can not login' do 
+
+    
         visit '/'
         click_on 'Log In'
         expect(current_path).to eq '/sessions/new'
@@ -44,9 +47,24 @@ feature 'An existing user can log in ' do
         click_button 'Log In'
         expect(current_path).to eq '/sessions/new'
         expect(page).to have_content "Log in failed, please check your credentials"
+    end
 
 
+    scenario 'a logged in user can log out ' do
 
+      
+        visit '/'
+        click_on 'Log In'
+        expect(current_path).to eq '/sessions/new'
+        fill_in 'username', with: username
+        fill_in 'password', with: password
+        fill_in 'email', with: email
+        click_button 'Log In'
+        expect(current_path).to eq '/'
+        click_button 'Log Out'
+        # expect(page).to have_content "Welcome, #{user.username}"
+        expect(page).to have_link('Sign Up', href: '/users/new')
+        expect(page).to have_link('Log In', href: '/sessions/new')
 
 
     end
